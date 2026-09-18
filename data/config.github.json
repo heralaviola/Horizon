@@ -1,15 +1,15 @@
 {
   "ai": {
-    "provider": "deepseek",
-    "model": "deepseek-v4-flash",
-    "base_url": "https://api.deepseek.com",
-    "api_key_env": "DEEPSEEK_API_KEY",
+    "provider": "openai",
+    "model": "poolside/laguna-s-2.1:free",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
     "temperature": 0.3,
     "max_tokens": 8192,
     "throttle_sec": 1,
     "languages": [
-      "zh",
-      "en"
+      "en",
+      "zh"
     ],
     "analysis_concurrency": 5,
     "enrichment_concurrency": 5
@@ -208,7 +208,7 @@
           "profile": "tech-news"
         },
         {
-          "subreddit": "LocalLLaMA",
+          "subreddit": "singularity",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
@@ -256,6 +256,7 @@
     "layout": "collapsible",
     "fallback_layout": "markdown",
     "languages": [
+      "en",
       "zh"
     ],
     "request_body": {
