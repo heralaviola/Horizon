@@ -1,9 +1,9 @@
 {
   "ai": {
     "provider": "openai",
-    "model": "poolside/laguna-s-2.1:free",
-    "base_url": "https://openrouter.ai/api/v1",
-    "api_key_env": "OPENROUTER_API_KEY",
+    "model": "deepseek-v4.1-flash",
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "api_key_env": "OPENCODE_GO_API_KEY",
     "temperature": 0.3,
     "max_tokens": 8192,
     "throttle_sec": 1,
