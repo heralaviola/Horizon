@@ -252,36 +252,15 @@
     "url_env": "HORIZON_WEBHOOK_URL",
     "delivery": "summary_and_items",
     "overview_position": "last",
-    "platform": "feishu",
-    "layout": "collapsible",
+    "platform": "discord",
+    "layout": "markdown",
     "fallback_layout": "markdown",
     "languages": [
       "en",
       "zh"
     ],
     "request_body": {
-      "msg_type": "interactive",
-      "card": {
-        "schema": "2.0",
-        "config": {
-          "wide_screen_mode": true
-        },
-        "header": {
-          "title": {
-            "tag": "plain_text",
-            "content": "#{message_title}"
-          },
-          "template": "blue"
-        },
-        "body": {
-          "elements": [
-            {
-              "tag": "markdown",
-              "content": "#{summary}"
-            }
-          ]
-        }
-      }
+      "content": "**#{message_title}**\n\n#{summary?limit=1800&split=---}"
     },
     "headers": ""
   }
