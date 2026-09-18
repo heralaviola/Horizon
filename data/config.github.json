@@ -7,10 +7,7 @@
     "temperature": 0.3,
     "max_tokens": 8192,
     "throttle_sec": 1,
-    "languages": [
-      "en",
-      "zh"
-    ],
+    "languages": ["en"],
     "analysis_concurrency": 5,
     "enrichment_concurrency": 5
   },
@@ -255,10 +252,7 @@
     "platform": "discord",
     "layout": "markdown",
     "fallback_layout": "markdown",
-    "languages": [
-      "en",
-      "zh"
-    ],
+    "languages": ["en"],
     "request_body": {
       "content": "**#{message_title}**\n\n#{summary?limit=1800&split=---}"
     },
