@@ -1,0 +1,31 @@
+{
+  "id": "tools-update",
+  "name": "Tools Update",
+  "display_names": {
+    "zh": "工具更新"
+  },
+  "match": "match.md",
+  "analysis": "analysis.md",
+  "enrichment": {
+    "prompt": "enrichment.md",
+    "blocks": [
+      {
+        "id": "summary",
+        "type": "section",
+        "tools": [],
+        "primary": true
+      },
+      {
+        "id": "changes",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "impact",
+        "type": "section",
+        "tools": ["web_search"],
+        "optional": true
+      }
+    ]
+  }
+}

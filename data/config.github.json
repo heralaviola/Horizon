@@ -29,6 +29,10 @@
       "finance-news": {
         "threshold": 7.0,
         "topic_dedup": true
+      },
+      "tools-update": {
+        "threshold": 5.0,
+        "topic_dedup": true
       }
     }
   },
@@ -36,30 +40,99 @@
     "github": [
       {
         "type": "user_events",
-        "username": "karpathy",
-        "enabled": true,
-        "profile": "tech-news"
+        "username": "torvalds",
+        "enabled": false
       },
       {
         "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
+        "owner": "astral-sh",
+        "repo": "uv",
         "enabled": true,
-        "profile": "tech-news"
+        "profile": "tools-update"
       },
       {
         "type": "repo_releases",
-        "owner": "sgl-project",
-        "repo": "sglang",
+        "owner": "zed-industries",
+        "repo": "zed",
         "enabled": true,
-        "profile": "tech-news"
+        "profile": "tools-update"
       },
       {
         "type": "repo_releases",
-        "owner": "triton-lang",
-        "repo": "triton",
+        "owner": "neovim",
+        "repo": "neovim",
         "enabled": true,
-        "profile": "tech-news"
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "modem-dev",
+        "repo": "hunk",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "jj-vcs",
+        "repo": "jj",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "idursun",
+        "repo": "jjui",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "ogulcancelik",
+        "repo": "herdr",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "jesseduffield",
+        "repo": "lazygit",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "openai",
+        "repo": "codex",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "earendil-works",
+        "repo": "pi",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "xai-org",
+        "repo": "grok-build",
+        "enabled": true,
+        "profile": "tools-update"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "vic",
+        "repo": "den",
+        "enabled": true,
+        "profile": "tools-update"
       }
     ],
     "hackernews": {
@@ -165,6 +238,7 @@
   "digest": {
     "max_items": null,
     "profile_order": [
+      "tools-update",
       "tech-news",
       "tech-blog",
       "finance-news"
