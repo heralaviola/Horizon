@@ -52,17 +52,23 @@
 <br>
 <table>
 <tr>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>ターミナル出力</strong></p>
 <img src="docs/assets/terminal_log.png" alt="Terminal Output" />
 </td>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>Feishu通知</strong></p>
 <img src="docs/assets/feishu_en.png" alt="Feishu Notification" />
 </td>
-<td width="33.33%">
+</tr>
+<tr>
+<td width="50%" valign="top">
 <p align="center"><strong>メール配信</strong></p>
 <img src="docs/assets/email.png" alt="Email Delivery" />
+</td>
+<td width="50%" valign="top">
+<p align="center"><strong>WeChat配信</strong></p>
+<img src="docs/assets/wechat.jpg" alt="WeChatで表示した日報のヘッダー、概要、本文" />
 </td>
 </tr>
 </table>
@@ -97,7 +103,7 @@
 
 ## 仕組み
 
-![Horizonの構成：10種類の情報源をプロファイル駆動の処理に集約し、Markdown・Pages・メール・Webhookで届けます。](docs/assets/architecture.svg)
+![Horizonの構成：10種類の情報源をプロファイル駆動の処理に集約し、ブロック別に履歴・Web検索を利用。Markdown・Pages・メール・WeChat・Webhookで届けます。](docs/assets/architecture.svg)
 
 [編集可能なOmniGraffleファイル](docs/assets/architecture.graffle)
 
@@ -305,6 +311,7 @@ Horizonは、生成されたブリーフィングをいくつかの方法で公�
 | **GitHub Pages 日次サイト** | 生成されたMarkdownを`docs/`にコピーし、GitHub Pagesが毎日更新されるブリーフィングサイトを公開できるようにします |
 | **メール購読** | 日次ブリーフィングを購読者に送信し、SMTP/IMAPを通じて購読・購読解除リクエストを処理します |
 | **Webhook通知** | 成功または失敗の結果をFeishu/Lark、DingTalk、Slack、Discord、または任意のカスタムWebhookエンドポイントへプッシュします |
+| **WeChat通知** | QRログイン後にボットへメッセージを送り、iLink Bot経由で日報を受信。WeChatの返信数制限が適用されます |
 
 配信の設定は[設定ガイド](docs/configuration.md)を参照してください。AIアシスタントから各段階を呼び出すには**MCPサーバー**を利用できます：[ツール一覧](src/mcp/README.md)・[クライアント設定](src/mcp/integration.md)。
 
@@ -322,7 +329,7 @@ Horizonは余暇に運営されているオープンソースプロジェクト�
 
 | ガイド | 説明 |
 |-------|-------------|
-| [設定](docs/configuration.md) | AIプロバイダー、情報源、処理プロファイル、フィルタリング、メール、webhook、GitHub Pages、MCPのセットアップ |
+| [設定](docs/configuration.md) | AIプロバイダー、情報源、処理プロファイル、フィルタリング、メール、webhook、WeChat、GitHub Pages、MCPのセットアップ |
 | [処理プロファイル](docs/profiles.md) | プロファイルの振り分け、プロンプト、実行時フィルター設定、エンリッチブロック、ツール |
 | [スコアリング](docs/scoring.md) | Horizonがニュース項目を評価・ランク付けする方法 |
 | [スクレイパー](docs/scrapers.md) | 情報源スクレイパーの詳細と拡張に関する注記 |
@@ -331,7 +338,7 @@ Horizonは余暇に運営されているオープンソースプロジェクト�
 
 ## プロジェクトの状況
 
-Horizonはすでに日次ブリーフィングの全ループをサポートしています。マルチソース収集、プロファイル駆動の分析とエンリッチ、重複排除、コメント要約、2言語生成、GitHub Pages公開、メール配信、webhook配信、Dockerデプロイ、MCP統合、セットアップウィザードです。
+Horizonはすでに日次ブリーフィングの全ループをサポートしています。マルチソース収集、プロファイル駆動の分析とエンリッチ、重複排除、コメント要約、2言語生成、GitHub Pages公開、メール配信、webhook配信、WeChat配信、Dockerデプロイ、MCP統合、セットアップウィザードです。
 
 予定している改善:
 

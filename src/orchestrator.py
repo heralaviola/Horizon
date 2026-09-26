@@ -15,6 +15,7 @@ from .models import Config, ContentItem
 from .storage.manager import StorageManager, safe_output_path
 from .services.email import EmailManager
 from .services.webhook import WebhookNotifier
+from .services.wechat import WeChatNotifier
 from .scrapers.github import GitHubScraper
 from .scrapers.hackernews import HackerNewsScraper
 from .scrapers.rss import RSSScraper
@@ -216,6 +217,11 @@ class HorizonOrchestrator:
             if config.webhook and config.webhook.enabled
             else None
         )
+        self.wechat_notifier = (
+            WeChatNotifier(config.wechat, self.storage, console=self.console, icons=self.icons)
+            if config.wechat and config.wechat.enabled
+            else None
+        )
         self.last_fetch_report: Optional[FetchReport] = None
 
     async def run(self, force_hours: int = None) -> None:
@@ -367,6 +373,8 @@ class HorizonOrchestrator:
                         lang=lang,
                         summarizer=summarizer,
                     )
+                if self.wechat_notifier:
+                    await self.wechat_notifier.send_daily_summary(summary, lang)
 
             self.console.print(
                 f"[bold green]{self.icons['success']} "
@@ -395,6 +403,11 @@ class HorizonOrchestrator:
             # Send webhook failure notification if configured
             if self.webhook_notifier:
                 await self.webhook_notifier.send_failure(
+                    date=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    error_message=str(e),
+                )
+            if self.wechat_notifier:
+                await self.wechat_notifier.send_failure(
                     date=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
                     error_message=str(e),
                 )

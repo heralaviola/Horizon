@@ -52,17 +52,23 @@
 <br>
 <table>
 <tr>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>终端输出</strong></p>
 <img src="docs/assets/terminal_log.png" alt="终端输出" />
 </td>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>飞书通知</strong></p>
 <img src="docs/assets/feishu_zh.png" alt="飞书通知" />
 </td>
-<td width="33.33%">
+</tr>
+<tr>
+<td width="50%" valign="top">
 <p align="center"><strong>邮件推送</strong></p>
 <img src="docs/assets/email.png" alt="邮件推送" />
+</td>
+<td width="50%" valign="top">
+<p align="center"><strong>微信推送</strong></p>
+<img src="docs/assets/wechat.jpg" alt="微信中的日报头部、总览和正文" />
 </td>
 </tr>
 </table>
@@ -97,7 +103,7 @@
 
 ## 工作原理
 
-![Horizon 架构：十类信息源汇入 Profile 驱动的处理流程，再通过 Markdown、Pages、邮件和 Webhook 分发。](docs/assets/architecture.svg)
+![Horizon 架构：十类信息源汇入 Profile 驱动的处理流程，按区块启用历史与网络搜索，再通过 Markdown、Pages、邮件、微信和 Webhook 分发。](docs/assets/architecture.svg)
 
 [OmniGraffle 可编辑图源](docs/assets/architecture.graffle)
 
@@ -298,6 +304,7 @@ Horizon 支持通过多种方式发布和分发生成的日报：
 | **GitHub Pages 日报站点** | 将生成的 Markdown 复制到 `docs/`，通过 GitHub Pages 发布为每日更新的静态日报站点 |
 | **邮件订阅** | 通过 SMTP/IMAP 向订阅者发送日报，并自动处理订阅/退订请求 |
 | **Webhook 通知** | 在成功或失败时将结果推送到飞书、钉钉、Slack、Discord 或任意 Webhook 端点 |
+| **微信通知** | 通过 iLink Bot 推送日报；扫码登录后向机器人发一条消息即可连接，推送受微信回复额度限制 |
 
 投递配置见[配置指南](docs/configuration.md)。希望让 AI 助手调用流水线各阶段，可接入 **MCP Server**：[工具说明](src/mcp/README.md) · [客户端接入](src/mcp/integration.md)。
 
@@ -305,7 +312,7 @@ Horizon 支持通过多种方式发布和分发生成的日报：
 
 | 文档 | 内容 |
 |------|------|
-| [配置指南](docs/configuration.md) | AI 模型、信息源、Profile、筛选、邮件、Webhook、GitHub Pages 和 MCP 配置 |
+| [配置指南](docs/configuration.md) | AI 模型、信息源、Profile、筛选、邮件、Webhook、微信、GitHub Pages 和 MCP 配置 |
 | [Profile 指南](docs/profiles.md) | 内置读法、自定义评分与内容区块、路由和工具权限 |
 | [评分机制](docs/scoring.md) | Horizon 如何评估和排序新闻 |
 | [抓取器](docs/scrapers.md) | 信息源抓取器说明和扩展细节 |
@@ -314,7 +321,7 @@ Horizon 支持通过多种方式发布和分发生成的日报：
 
 ## 项目状态
 
-Horizon 已经支持完整的日报流程：多源抓取、Profile 驱动的分析与内容生成、去重、评论摘要、双语生成、GitHub Pages 发布、邮件分发、Webhook 推送、Docker 部署、MCP 集成和配置向导。
+Horizon 已经支持完整的日报流程：多源抓取、Profile 驱动的分析与内容生成、去重、评论摘要、双语生成、GitHub Pages 发布、邮件分发、Webhook 推送、微信推送、Docker 部署、MCP 集成和配置向导。
 
 计划中的改进：
 

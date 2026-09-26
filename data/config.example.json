@@ -259,5 +259,10 @@
       }
     },
     "headers": ""
+  },
+  "wechat": {
+    "enabled": false,
+    "languages": null,
+    "chunk_size": 4000
   }
 }

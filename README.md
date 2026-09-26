@@ -51,17 +51,23 @@
 <br>
 <table>
 <tr>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>Terminal Output</strong></p>
 <img src="docs/assets/terminal_log.png" alt="Terminal Output" />
 </td>
-<td width="33.33%">
+<td width="50%" valign="top">
 <p align="center"><strong>Feishu Notification</strong></p>
 <img src="docs/assets/feishu_en.png" alt="Feishu Notification" />
 </td>
-<td width="33.33%">
+</tr>
+<tr>
+<td width="50%" valign="top">
 <p align="center"><strong>Email Delivery</strong></p>
 <img src="docs/assets/email.png" alt="Email Delivery" />
+</td>
+<td width="50%" valign="top">
+<p align="center"><strong>WeChat Delivery</strong></p>
+<img src="docs/assets/wechat.jpg" alt="Horizon briefing header, overview, and details in WeChat" />
 </td>
 </tr>
 </table>
@@ -96,7 +102,7 @@ Assign a profile to a source, or let AI choose. Want a different take? Adapt an 
 
 ## How It Works
 
-![Horizon architecture: ten sources feed a shared profile-driven pipeline, with Markdown, Pages, email, and webhook delivery.](docs/assets/architecture.svg)
+![Horizon architecture: ten sources feed a profile-driven pipeline with history and web search tools, delivering to Markdown, Pages, email, WeChat, and webhooks.](docs/assets/architecture.svg)
 
 [Editable OmniGraffle source](docs/assets/architecture.graffle)
 
@@ -309,6 +315,7 @@ Horizon can publish or deliver the generated briefing in several ways:
 | **GitHub Pages Daily Site** | Copies generated Markdown into `docs/` so GitHub Pages can publish a daily-updated briefing site |
 | **Email Subscription** | Sends the daily briefing to subscribers and handles subscribe/unsubscribe requests through SMTP/IMAP |
 | **Webhook Notification** | Pushes success or failure results to Feishu/Lark, DingTalk, Slack, Discord, or any custom webhook endpoint |
+| **WeChat Notification** | Sends briefings through iLink Bot after QR login and a message from you; WeChat reply limits apply |
 
 For delivery setup, see the [Configuration Guide](docs/configuration.md). To run pipeline stages from an AI assistant, use the **MCP Server**: [tools](src/mcp/README.md) · [client setup](src/mcp/integration.md).
 
@@ -326,7 +333,7 @@ Horizon is an open-source project maintained in spare time. If you'd like to sup
 
 | Guide | Description |
 |-------|-------------|
-| [Configuration](docs/configuration.md) | AI providers, sources, profiles, filtering, email, webhook, GitHub Pages, and MCP setup |
+| [Configuration](docs/configuration.md) | AI providers, sources, profiles, filtering, email, webhook, WeChat, GitHub Pages, and MCP setup |
 | [Processing Profiles](docs/profiles.md) | Profile routing, prompts, runtime filtering preferences, enrichment blocks, and tools |
 | [Scoring](docs/scoring.md) | How Horizon evaluates and ranks news items |
 | [Scrapers](docs/scrapers.md) | Source scraper details and extension notes |
@@ -335,7 +342,7 @@ Horizon is an open-source project maintained in spare time. If you'd like to sup
 
 ## Project Status
 
-Horizon already supports the full daily briefing loop: multi-source collection, profile-driven analysis and enrichment, deduplication, comment summaries, bilingual generation, GitHub Pages publishing, email delivery, webhook delivery, Docker deployment, MCP integration, and the setup wizard.
+Horizon already supports the full daily briefing loop: multi-source collection, profile-driven analysis and enrichment, deduplication, comment summaries, bilingual generation, GitHub Pages publishing, email delivery, webhook delivery, WeChat delivery, Docker deployment, MCP integration, and the setup wizard.
 
 Planned improvements:
 
