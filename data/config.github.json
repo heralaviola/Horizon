@@ -1,9 +1,9 @@
 {
   "ai": {
     "provider": "openai",
-    "model": "poolside/laguna-s-2.1:free",
-    "base_url": "https://openrouter.ai/api/v1",
-    "api_key_env": "OPENROUTER_API_KEY",
+    "model": "grok-4.7",
+    "base_url": "https://api.x.ai/v1",
+    "api_key_env": "XAI_API_KEY",
     "temperature": 0.3,
     "max_tokens": 8192,
     "throttle_sec": 1,
