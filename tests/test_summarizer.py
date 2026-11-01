@@ -3,6 +3,9 @@
 import asyncio
 from datetime import datetime, timezone
 
+import markdown
+from bs4 import BeautifulSoup
+
 from src.ai.summarizer import DailySummarizer
 from src.models import (
     ArtifactSource,
@@ -183,6 +186,19 @@ def test_generate_summary_groups_items_by_profile_with_heading_hierarchy():
     assert "## Technology Blog" in result
     assert "### [Important Item 1]" in result
     assert "### [Important Item 2]" in result
+
+
+def test_generate_summary_renders_contents_as_lists_with_working_anchors():
+    items = [_make_item(1), _make_item(2)]
+    result = _run_async(DailySummarizer().generate_summary(items, "2026-04-25", 2))
+    page = BeautifulSoup(markdown.markdown(result), "html.parser")
+
+    links = page.select('ol li a[href^="#item-"]')
+    assert len(links) == 2
+    for link in links:
+        anchor = page.find(id=link["href"][1:])
+        assert anchor is not None
+        assert anchor.find_next("h3").get_text().startswith(link.get_text())
 
 
 def test_generate_summary_uses_configured_profile_order():

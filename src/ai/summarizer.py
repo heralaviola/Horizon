@@ -254,7 +254,7 @@ class DailySummarizer:
                     f"{view_item.index}. [{title}](#{view_item.anchor_id}) "
                     f"\u2b50\ufe0f {view_item.score}/10"
                 )
-            toc_sections.append("\n".join(toc_entries))
+            toc_sections.append(toc_entries[0] + "\n\n" + "\n".join(toc_entries[1:]))
             body_sections.append(f"## {profile_name}\n\n")
             body_sections.extend(
                 self._format_item(
@@ -420,6 +420,7 @@ class DailySummarizer:
 
         lines = [
             f'<a id="{anchor_id or f"item-{index}"}"></a>',
+            "",
             f"{'#' * heading_level} {title_link} \u2b50\ufe0f {score}/10",  # ⭐️
         ]
         if summary.strip():
