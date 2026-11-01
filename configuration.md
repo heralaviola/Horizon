@@ -143,6 +143,24 @@ Common API key variable names:
 | Aliyun DashScope | `DASHSCOPE_API_KEY` |
 | Doubao | `DOUBAO_API_KEY` |
 | DeepSeek | `DEEPSEEK_API_KEY` |
+| xAI | `XAI_API_KEY` |
+
+**xAI Grok**:
+
+```json
+{
+  "ai": {
+    "provider": "openai",
+    "model": "grok-4.7",
+    "base_url": "https://api.x.ai/v1",
+    "api_key_env": "XAI_API_KEY"
+  }
+}
+```
+
+Create an API key and configure API billing in the [xAI Console](https://console.x.ai/).
+Grok and SuperGrok subscriptions are billed separately from API usage; see the
+[xAI account FAQ](https://docs.x.ai/console/faq/accounts).
 
 **Anthropic Claude**:
 
